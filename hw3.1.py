@@ -5,16 +5,17 @@ def count_calls():
     calls = calls + 1
 
 def string_info(string):
-    str_i = (len(string), string.lower(), string.upper())
+    str_i = (len(string), string.upper(), string.lower())
     count_calls()
-    return str_i, count_calls()
-def is_contains(list, list_to_search):
+    return str_i
+def is_contains(root_word, list_to_search):
+    count_calls()
     for i in range(len(list_to_search)):
-        if list_to_search[i].lower() == list.lower():
+        if list_to_search[i].lower() in root_word.lower():
             return True
-        else:
-            return False
-    count_calls()
+        if root_word.lower() in list_to_search[i].lower():
+            return True
+    return False
 
 print(string_info('Capibara'))
 print(string_info('Armageddon'))
